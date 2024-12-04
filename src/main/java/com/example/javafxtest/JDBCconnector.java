@@ -17,9 +17,9 @@ public class JDBCconnector {
             throw new RuntimeException("Failed to load database configuration", e);
         }
 
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String user = "postgres";
-        String password = properties.getProperty("dbpassword");
+        String url = "jdbc:postgresql://localhost:5432/postgres"; // will be hidden in config.properties in the future
+        String user = "postgres"; // will be hidden in config.properties in the future
+        String password = properties.getProperty("dbpassword"); // hidden in config.properties
 
         return DriverManager.getConnection(url, user, password);
     }
