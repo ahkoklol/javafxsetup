@@ -1,5 +1,6 @@
 package com.example.javafxtest;
 
+import com.example.javafxtest.User.Login.LoginFacade;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,24 +9,25 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Load FXML
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
         // Get controller and set the database connection
-        HelloController controller = fxmlLoader.getController();
+        LoginController controller = fxmlLoader.getController();
         try {
             Connection connection = JDBCconnector.getConnection();
-            controller.setDatabaseConnection(connection);
+            LoginFacade loginFacade = new LoginFacade(connection);
+            controller.setLoginFacade(loginFacade);
         } catch (Exception e) {
             System.err.println("Failed to connect to database: " + e.getMessage());
         }
 
         // Configure and show the stage
-        stage.setTitle("Hello!");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }

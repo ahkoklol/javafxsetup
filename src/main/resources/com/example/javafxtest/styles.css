@@ -1,0 +1,41 @@
+#loginButton {
+    -fx-background-color: #1BFF89; /* Blue background */
+    -fx-text-fill: black;          /* White text color */
+    -fx-font-size: 14px;           /* Font size */
+    -fx-padding: 5px;
+}
+
+#loginButton:hover {
+    -fx-background-color: #17E675; /* Darker green on hover */
+}
+
+#headerPane {
+    -fx-background-color: #232323;
+}
+
+#loginPane {
+    -fx-background-color: #3F3C3C;
+    -fx-border-radius: 10px;        /* Rounded corners */
+    -fx-background-radius: 10px;   /* Rounded background */
+
+}
+
+#anchorPane {
+    -fx-background-color: #000000;
+}
+
+#registerText {
+    -fx-fill: white;
+}
+
+#registerText:hover {
+    -fx-fill: #BBBBBB;
+}
+
+#whiteText {
+    -fx-fill: white;
+}
+
+#blackText {
+    -fx-fill: black;
+}
