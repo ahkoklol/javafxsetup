@@ -5,6 +5,7 @@ import com.example.javafxtest.User.Login.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import java.sql.Connection;
 
 public class LoginController {
 
@@ -14,9 +15,8 @@ public class LoginController {
     @FXML
     private TextField passwordField;
 
-    private LoginFacade loginFacade; // Reference to the UserFacade
+    private LoginFacade loginFacade;
 
-    // Setter method for UserFacade
     public void setLoginFacade(LoginFacade loginFacade) {
         this.loginFacade = loginFacade;
     }

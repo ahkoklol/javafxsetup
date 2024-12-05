@@ -12,24 +12,25 @@ import java.sql.Connection;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        // Load FXML
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
-        // Get controller and set the database connection
-        LoginController controller = fxmlLoader.getController();
-        try {
-            Connection connection = JDBCconnector.getConnection();
-            LoginFacade loginFacade = new LoginFacade(connection);
-            controller.setLoginFacade(loginFacade);
-        } catch (Exception e) {
-            System.err.println("Failed to connect to database: " + e.getMessage());
-        }
+        SceneManager sceneManager = new SceneManager(stage);
 
-        // Configure and show the stage
-        stage.setTitle("Login");
-        stage.setScene(scene);
+        // Load all scenes
+        sceneManager.loadScene("Login", "/com/example/javafxtest/LoginScene.fxml", 600, 400);
+        sceneManager.loadScene("Home", "/com/example/javafxtest/HomeScene.fxml", 600, 400);
+        sceneManager.loadScene("Register", "/com/example/javafxtest/RegisterScene.fxml", 600, 400);
+
+        // Inject SceneManager into HomeController
+        HomeController homeController = (HomeController) sceneManager.getController("Home");
+        homeController.setSceneManager(sceneManager);
+
+        // Show the initial scene
+        sceneManager.showScene("Home");
+
+        // Set stage title and show it
+        stage.setTitle("Pick & Pic");
         stage.show();
+
     }
 
     public static void main(String[] args) {
