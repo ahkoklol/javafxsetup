@@ -22,8 +22,7 @@
             </Text>
             <Button fx:id="loginButton" layoutX="113.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Log in" onAction="#onLoginButtonClick" />
 
-            <!-- add onMouseClicked="#onRegisterClicked" for future register navigation-->
-            <Text id="registerText" layoutX="126.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" text="No account? Register now" wrappingWidth="121.336669921875">
+            <Text id="registerText" layoutX="126.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" text="No account? Register now" wrappingWidth="121.336669921875" onMouseClicked="#onGoToRegisterButtonClick">
                <font>
                   <Font size="10.0" />
                </font>

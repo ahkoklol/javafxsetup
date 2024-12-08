@@ -41,6 +41,10 @@ public class SceneManager {
             LoginController loginController = (LoginController) controller;
             loginController.setLoginFacade(new LoginFacade(connection)); // Connection handled in UserDAO
         }
+
+        if (controller instanceof RegisterController) {
+            RegisterController registerController = (RegisterController) controller;
+        }
     }
 
     public void showScene(String name) {

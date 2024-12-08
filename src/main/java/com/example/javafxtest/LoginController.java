@@ -16,6 +16,8 @@ public class LoginController {
     private TextField passwordField;
 
     private LoginFacade loginFacade;
+    private SceneManager sceneManager;
+
 
     public void setLoginFacade(LoginFacade loginFacade) {
         this.loginFacade = loginFacade;
@@ -42,6 +44,15 @@ public class LoginController {
             showAlert("Login Successful", "Welcome back " + user.getUserame() + "!");
         } else {
             showAlert("Login Failed", "Invalid email or password.");
+        }
+    }
+
+    @FXML
+    private void onGoToRegisterButtonClick() {
+        if (sceneManager != null) {
+            sceneManager.showScene("Register");
+        } else {
+            showAlert("Navigation Error", "Scene manager is not set.");
         }
     }
 
